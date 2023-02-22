@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 
-:root {
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+[data-theme="1"] {
   --mainBackground: #3a4764;
   --auxBackground: #232c43;
   --screenBackground: #182034;
@@ -18,7 +21,7 @@
   --equalShadow: #93261a;
 }
 
-[data-theme="one"] {
+[data-theme="2"] {
   --mainBackground: #e6e6e6;
   --auxBackground: #d1cccc;
   --screenBackground: #ededed;
@@ -33,22 +36,7 @@
   --equalShadow: #893901;
 }
 
-[data-theme="two"] {
-  --mainBackground: #3a4764;
-  --auxBackground: #232c43;
-  --screenBackground: #182034;
-  --textColor: #ffffff;
-  --keyTextColor: #444b5a;
-  --keyBackground: #eae3dc;
-  --keyShadow: #b4a597;
-  --delButBackground: #637097;
-  --delButShadow: #404e72;
-  --equalsText: #ffffff;
-  --equalsBackground: #d03f2f;
-  --equalShadow: #93261a;
-}
-
-[data-theme="three"] {
+[data-theme="3"] {
   --mainBackground: #160628;
   --auxBackground: #1d0934;
   --screenBackground: #1d0934;
