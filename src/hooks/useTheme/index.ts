@@ -12,17 +12,18 @@ import { useEffect, useState } from "react";
  */
 
 
-export const useTheme = () => {
+export type Ttheme = '1' | "2" | "3"
+
+export const useTheme = (): { theme: string; setTheme: (v: Ttheme) => void; } => {
   let defaultTheme =
-    localStorage.getItem("theme") ||
+    localStorage.getItem("theme") as Ttheme ||
     (matchMedia("(prefers-color-scheme: dark)").matches ? "1" : "2");
 
 
-  const [theme, setTheme] = useState(defaultTheme);
+  const [theme, setTheme] = useState<Ttheme>(defaultTheme);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   return { theme, setTheme };
