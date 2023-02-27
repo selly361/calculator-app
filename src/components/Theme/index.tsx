@@ -1,3 +1,5 @@
+import { Circle, Container, StyledButton1, StyledButton2, StyledButton3, ThemeContainer, Wrapper } from "./Theme.styles"
+
 import React from "react";
 
 interface IProps {
@@ -6,20 +8,25 @@ interface IProps {
 }
 
 function Theme({ theme, setTheme }: IProps) {
+
+  const classNames = {
+    '1': 'active-one',
+    '2': 'active-two',
+    '3': 'active-three',
+  }
+
+  const activeClass = theme == '1' ? 'one' : theme == '2' ? 'two' : 'three'
+
+  
   return (
-    <div className="h-[44px] w-[139px] flex gap-[26px] items-center">
-      <h2 className="text-[12px]">THEME</h2>
-      <div className="w-[71px]">
-        <ul className="text-[var(--textColor)] text-[12px] flex justify-between items-center">
-          <li className="w-[20px] text-center h-[71px]">1</li>
-          <li className="w-[20px] text-center h-[71px]">2</li>
-          <li className="w-[20px] text-center h-[71px]">3</li>
-        </ul>
-        <div className="bg-[var(--auxBackground)] w-[100%] h-[26px] rounded-[13px] flex items-center px-[5px] ">
-          <div className="bg-[var(--equalsBackground)] rounded-[50%] h-[16px] w-[16px]"></div>
-        </div>
-      </div>
-    </div>
+    <Wrapper>
+        <StyledButton1 onClick={() => setTheme("1")}>1</StyledButton1>
+        <StyledButton2 onClick={() => setTheme("2")}>2</StyledButton2>
+        <StyledButton3 onClick={() => setTheme("3")}>3</StyledButton3>
+        <ThemeContainer>
+          <Circle className={activeClass} />
+        </ThemeContainer>
+    </Wrapper>
   );
 }
 
