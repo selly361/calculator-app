@@ -41,7 +41,10 @@ export function useCalc() {
 
 
   function inputNumber(number: string){
-    if(expression == '0'){
+
+    
+    
+    if(expression == '0' || expression == 'isNaN'){
       setExpression((e) => number);
     }
 
