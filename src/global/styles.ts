@@ -18,8 +18,14 @@ export const GlobalStyles = createGlobalStyle`
     width: 100vw;
     overflow-x: hidden;
     background-color: ${(props) => props.theme.mainBackground};
+    display: grid;
+    place-items: center;
   }
 
+
+  body, div, button, main, header, section {
+    transition: 1s ease background-color, 1s ease color;
+  }
 
   /* Make images easier to work with */
   img,

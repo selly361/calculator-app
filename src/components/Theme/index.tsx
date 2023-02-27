@@ -8,13 +8,6 @@ interface IProps {
 }
 
 function Theme({ theme, setTheme }: IProps) {
-
-  const classNames = {
-    '1': 'active-one',
-    '2': 'active-two',
-    '3': 'active-three',
-  }
-
   const activeClass = theme == '1' ? 'one' : theme == '2' ? 'two' : 'three'
 
   
