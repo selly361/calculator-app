@@ -12,15 +12,14 @@ import { useEffect, useState } from "react";
  */
 
 
-export type Ttheme = '1' | "2" | "3"
 
-export const useTheme = (): { theme: string; setTheme: (v: Ttheme) => void; } => {
+export const useTheme = (): { theme: string; setTheme: (arg: string) => void; } => {
   let defaultTheme =
-    localStorage.getItem("theme") as Ttheme ||
+    localStorage.getItem("theme") as string ||
     (matchMedia("(prefers-color-scheme: dark)").matches ? "1" : "2");
 
 
-  const [theme, setTheme] = useState<Ttheme>(defaultTheme);
+  const [theme, setTheme] = useState<string>(defaultTheme);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);

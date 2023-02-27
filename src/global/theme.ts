@@ -1,4 +1,3 @@
-import { Ttheme } from "hooks/useTheme";
 
 type IthemeStyles = {
     [key in string]: {

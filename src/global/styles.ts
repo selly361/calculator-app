@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
-  body, div, button, main, header, section {
+  body, div, button, main, header, section, input {
     transition: 1s ease background-color, 1s ease color;
   }
 

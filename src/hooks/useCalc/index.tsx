@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import { NumberError } from "utils/errorClass";
-import { Toperator } from "./types";
 import { getSelectedText } from "utils/getSelectedText";
 
 /**
@@ -19,7 +18,7 @@ export function useCalc() {
    *
    * @type {string}
    */
-  const [expression, setExpression] = useState("");
+  const [expression, setExpression] = useState("0");
 
   /**
    * A function that evaluates the current expression and sets the result as the new expression.
@@ -34,11 +33,23 @@ export function useCalc() {
         throw new NumberError(answer);
       }
 
-      setExpression(answer);
+      setExpression(String(answer));
     } catch (error) {
       setExpression("isNaN");
     }
   }
+
+
+  function inputNumber(number: string){
+    if(expression == '0'){
+      setExpression((e) => number);
+    }
+
+    else {
+      setExpression((e) => e + number);
+    }
+  }
+  
 
   /**
    * A function that removes the last character from the expression.
@@ -46,6 +57,7 @@ export function useCalc() {
    * @function
    */
   function del() {
+
     if (getSelectedText() == expression) {
       console.log(getSelectedText());
       reset();
@@ -54,13 +66,18 @@ export function useCalc() {
     setExpression((e) => e.slice(0, e.length - 1));
   }
 
+
+  if(expression.length == 0){
+    setExpression('0')
+  }
+
   /**
    * A function that resets the expression to an empty string.
    *
    * @function
    */
   function reset() {
-    setExpression("");
+    setExpression("0");
   }
 
   /**
@@ -72,7 +89,11 @@ export function useCalc() {
   function handleKeyPress(e: KeyboardEvent) {
     const key = e.key;
 
-    if (key >= "0" && key <= "9") setExpression((e) => e + key);
+    if (key >= "0" && key <= "9") {
+      
+      inputNumber(key)
+            
+    }
 
     switch (key) {
       case "+":
@@ -92,7 +113,6 @@ export function useCalc() {
         break;
 
       case "=":
-      case "Enter":
         compute();
         break;
     }
@@ -109,7 +129,7 @@ export function useCalc() {
     return () => document.removeEventListener("keydown", handleKeyPress);
   });
 
-  return { compute, del, reset, setExpression, expression };
+  return { compute, del, reset, expression, inputNumber, setExpression };
 }
 
 export default useCalc;
