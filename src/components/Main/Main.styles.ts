@@ -6,6 +6,11 @@ export const StyledMain = styled.main`
   display: flex;
   gap: 32px;
   flex-direction: column;
+
+  @media (max-width: 700px) {
+    width: 327px;
+    min-height: 420px;
+  }
 `;
 
 export const StyledHeader = styled.header`
@@ -51,6 +56,12 @@ export const CalculatorBody = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 25px;
+
+  @media (max-width: 700px) {
+    gap: 13px;
+    padding: 24px;
+    min-height: 420px;
+  }
 `;
 
 export const GeneralKeyButton = styled.button`
@@ -73,22 +84,37 @@ export const GeneralKeyButton = styled.button`
   &:active {
     box-shadow: none;
   }
+
+  @media (max-width: 700px) {
+    width: 60px;
+    font-size: 32px;
+  }
 `;
 
 export const DelButton = styled(GeneralKeyButton)`
   box-shadow: inset 0px -4px 0px ${(props) => props.theme.delButShadow};
   background-color: ${(props) => props.theme.delButBackground};
   color: white;
-  
 
-`
+  @media (max-width: 700px) {
+    height: 64px;
+    width: 60px;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+`;
 
 export const ResetButton = styled(DelButton)`
   grid-column: span 2;
   width: 227px;
-`
+
+  @media (max-width: 700px) {
+    width: 133px;
+    font-size: 20px;
+  }
+`;
 export const EqualsButton = styled(ResetButton)`
   box-shadow: inset 0px -4px 0px ${(props) => props.theme.equalShadow};
   background-color: ${(props) => props.theme.equalsBackground};
   color: ${(props) => props.theme.equalsText};
-`
+`;
