@@ -55,6 +55,9 @@ export const GlobalStyles = createGlobalStyle`
     outline: unset;
   }
 
+buton:focus {
+    box-shadow: none;
+}
 
 `;
 
